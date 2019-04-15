@@ -1,0 +1,79 @@
+/**
+ * @description Markdown组件
+ * @author kygeng
+ * date: 2018-06-08
+ */
+.abc-wdcp-markdown-view {
+  line-height: 1.5;
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 16px;
+  }
+  h5 {
+    font-size: 14px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+  p {
+    font-size: 14px;
+  }
+  ul li {
+    list-style: circle;
+  }
+  ol li {
+    list-style: decimal;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  hr {
+    margin: 1em 0;
+  }
+  code {
+    color: #c41d7f;
+  }
+  > table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #ebedf0;
+    width: 100%;
+    margin: 8px 0 16px;
+    td,
+    th {
+      border: 1px solid #ebedf0;
+      padding: 16px 24px;
+      text-align: left;
+    }
+    th {
+      white-space: nowrap;
+      color: #5c6b77;
+      font-weight: 500;
+      background: rgba(0, 0, 0, .02);
+    }
+    td {
+      &:first-child {
+        font-weight: 500;
+        width: 20%;
+      }
+      &:nth-child(3) {
+        width: 22%;
+        font-size: 12px;
+      }
+      &:last-child {
+        width: 13%;
+        font-size: 12px;
+      }
+    }
+  }
+}

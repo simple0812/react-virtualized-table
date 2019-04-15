@@ -1,0 +1,403 @@
+:local(.localClass) {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  .ReactVirtualized__Grid__innerScrollContainer {
+    overflow: unset !important;
+  }
+
+  .hover-cell {
+    cursor: pointer;
+    &:hover {
+      color: #407dd5;
+      svg path {
+        fill: #407dd5;
+      }
+    }
+  }
+  &:hover {
+    .nav-wrapper {
+      background: #6B7691;
+      >span {
+        display: block;
+        svg path {
+          fill: #fefefe;
+        }
+      }
+    }
+  }
+
+  &.bordered {
+    .headerCell {
+      background: #fafafa;
+      color: rgba(0,0,0,.65);
+      border-right: 1px solid #F0F3F7;
+      font-weight: bold;
+    }
+    .nav-wrapper-empty {
+      background: #fafafa;
+    }
+  }
+  .GridRow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background: white;
+  }
+
+  .GridColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+  .LeftSideGridContainer {
+    z-index: 10;
+    background: #fff;
+  }
+  .LeftSideGrid {
+    padding-bottom: 6px;
+    overflow: hidden !important;
+  }
+  .HeaderGrid {
+    width: 100%;
+    overflow: hidden !important;
+  }
+  .ReactVirtualized__Grid {
+    &:focus {
+      outline: none;
+    }
+  }
+  .BodyGrid {
+    width: 100%;
+  }
+
+  .oddRow {
+    background-color: #fff;
+  }
+
+  .evenRow {
+    background-color: #fafafa;
+  }
+  .rowActive, .rowSelected {
+    background-color: #F0F3F7;
+  }
+
+  .columnHover {
+    background-color: #F0F3F7;
+
+    &.headerCell {
+      background: #6B7691;
+    }
+  }
+
+  .blinkCell {
+    // background-color: #F0F3F7;
+    &.evenRow {
+      animation: evenCellBlinkAnimate 2s;
+    }
+
+    &.oddRow {
+      animation: oddCellBlinkAnimate 2s;
+    }
+
+    &.headerCell {
+      animation: headerCellBlinkAnimate 2s;
+      &.fixed {
+        animation: fixedHeaderCellBlinkAnimate 2s;
+
+      }
+    }
+  }
+
+  .headerCell {
+    background-color: #949CB3;
+
+    &.lastNonFixed {
+      border-right: 0px solid #F0F3F7;
+    }
+  }
+  .headerCell.fixed {
+    z-index: 3;
+    background-color: #6B7691;
+  }
+
+  .cell.fixed {
+    z-index: 3;
+    // &:not(.navCell) {
+    //   background-color: #6B7691;
+    // }
+  }
+  
+  .cell,
+  .headerCell,
+  .rightCell,
+  .leftCell {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 .5em;
+    font-size: 12px;
+  }
+  .headerCell,
+  .leftCell {
+    color: #fff;
+    font-weight: normal;
+  }
+
+  .cellBordered {
+    border-right: 1px solid #F0F3F7;
+    border-bottom: 1px solid #F0F3F7;
+    &.cell {
+      background: white;
+      &.rowActive {
+        background: #F0F3F7;
+      }
+
+      &.columnHover {
+        background-color: #F0F3F7;
+    
+        &.headerCell {
+          background: #6B7691;
+        }
+      }
+    }
+
+    &.cellLeftNav {
+      border-right: 0px solid #F0F3F7;
+    }
+
+    &.cellRightNav {
+      border-left: 0px solid #F0F3F7;
+    }
+
+    &.column-0 {
+      border-left: 1px solid #F0F3F7;
+    }
+
+    &.lastNonFixed {
+      border-right: 0px solid #F0F3F7;
+    }
+
+  }
+
+  .cell-container {
+    width: 100%;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+
+    .ant-checkbox-wrapper {
+      margin-top:1px;
+    }
+  }
+  .header-cell-container {
+    width: 100%;
+    height: 28px;;
+    position: relative;
+
+    &:hover {
+      .header-more {
+        display: block;
+      }
+    }
+    .header-title {
+      position: absolute;
+      height: 28px;
+      line-height: 28px;
+      right:12px; 
+      left:0px;
+      top:0px;
+      bottom: 0px;
+
+      &-text {
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap;
+        display: inline-block;
+        max-width: calc(100% - 17px);
+
+        svg {
+          font-size: 16px;
+          color: white;
+          opacity: 0.5;
+          position: relative;
+          top: 1px;
+        }
+      }
+      
+      .header-sorter {
+        display: inline-block;
+        margin-left: 5px;
+        position:relative;
+        top:-7px;
+      }
+    }
+
+    .header-more {
+      position: absolute;
+      right: 0;
+      top:0px;
+      height: 28px;
+      font-size: 14px;
+      display: none;
+
+      .sort-wrapper {
+        height: 100%;
+        padding-top: 0px;
+      }
+    }
+  }
+  .headerCell {
+    cursor: pointer;
+    border-right: 1px solid #a0a7bb;
+    &:last-child {
+      border-right: 0px;
+    }
+  }
+  .nav-wrapper-empty,
+  .nav-wrapper {
+    width: 20px;
+    height: 40px;
+    padding-top: 10px;
+    background: #949CB3;
+    &.right-nav-wrapper {
+      border-right: 1px solid #a0a7bb;
+    }
+    >span {
+      display: none;
+    }
+  }
+  .nav-wrapper {
+    text-align: center;
+  }
+  .ant-pagination-disabled .ant-btn {
+    color: rgba(0, 0, 0, 0.25);
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+    cursor: not-allowed;
+  }
+  .ant-list-item {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+  .wechat-loading-wrapper {
+    position: absolute;
+    z-index: 101;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .loading-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    background: white;
+    z-index: 100;
+  }
+
+  .ant-checkbox-indeterminate .ant-checkbox-inner {
+    background-color: #1890ff;
+    border-color: #1890ff;
+    border-radius: 2px;
+  }
+
+  .ant-checkbox-indeterminate .ant-checkbox-inner:after {
+    content: " ";
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    position: absolute;
+    left: 3.5px;
+    top: 6px;
+    width: 9px;
+    height: 1px;
+    border: 1px solid white;
+  }
+}
+
+:local(.pagerContainer) {
+  ul.ant-pagination {
+    font-size: 12px;
+    li {
+      font-size: 12px;
+      button {
+        font-size: 12px;
+      }
+      .ant-pagination-options-quick-jumper {
+        font-size: 12px;
+      }
+      .ant-select-selection__rendered {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .ant-pagination-disabled .ant-btn {
+    color: rgba(0, 0, 0, 0.25);
+    background-color: #f5f5f5;
+    border-color: #d9d9d9;
+    cursor: not-allowed;
+  }
+  .ant-list-item {
+    padding-top: 2px !important; 
+    padding-bottom: 2px !important; 
+  }
+}
+
+@keyframes fixedHeaderCellBlinkAnimate {
+  0% {
+    background-color: #6B7691;
+  }
+  50% {
+    background-color: #6B7691;
+  }
+  100% {
+    background-color: #6B7691;
+  }
+}
+
+@keyframes headerCellBlinkAnimate {
+  0% {
+    background-color: #6B7691;
+  }
+  50% {
+    background-color: #6B7691;
+  }
+  100% {
+    background-color: #949CB3;
+  }
+}
+
+@keyframes evenCellBlinkAnimate {
+  0% {
+    background-color: #F0F3F7;
+  }
+  50% {
+    background-color: #F0F3F7;
+  }
+  100% {
+    background-color: #fafafa;
+  }
+}
+
+@keyframes oddCellBlinkAnimate {
+  0% {
+    background-color: #F0F3F7;
+  }
+  50% {
+    background-color: #F0F3F7;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+

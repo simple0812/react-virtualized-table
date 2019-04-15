@@ -1,0 +1,46 @@
+:local(.localClass) {
+  .triangle {
+    display: block;
+    width: 0;
+    height: 4px;
+    border-width:  4px 0 4px 4px; //right
+    border-color: transparent transparent transparent #454859;
+    // border-width: 5px 4px 0; // down
+    // border-color: #454859 transparent transparent;
+    border-style: solid;
+    /*灰 透明 透明 */
+    margin-right: 7px;
+    margin-left:1px;
+    background: none;
+    transition: all 0.2s;
+    &::after {
+      content: '';
+    }
+
+    &.up {
+      transform: rotate(270deg);
+    }
+    &.down {
+      transform: rotate(90deg);
+      margin-top:-2px;
+    }
+  }
+
+  .icons-wrapper {
+    svg path {
+      fill: rgba(0,0,0,.45);
+    }
+
+    &:hover {
+      .triangle {
+        border-color: transparent transparent transparent #1890ff;
+      }
+    }
+
+    &.active {
+      .triangle {
+        border-color: transparent transparent transparent #407CD5;
+      }
+    }
+  }
+}

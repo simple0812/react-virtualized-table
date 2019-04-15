@@ -1,0 +1,14 @@
+:local(.localClass) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #8c8c8c;
+  font-size: 13px;
+  text-align: center;
+  &>p {
+    margin-top: 12px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
