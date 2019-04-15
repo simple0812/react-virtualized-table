@@ -122,10 +122,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simple0812/react-virtualized-talbe.git"
+    "url": "git+https://github.com/simple0812/react-virtualized-table.git"
   },
   "bugs": {
-    "url": "https://github.com/simple0812/react-virtualized-talbe/issues"
+    "url": "https://github.com/simple0812/react-virtualized-table/issues"
   },
-  "homepage": "https://github.com/simple0812/react-virtualized-talbe#readme"
+  "homepage": "https://github.com/simple0812/react-virtualized-table#readme"
 }
