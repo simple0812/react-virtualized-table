@@ -8,6 +8,38 @@
 - 使用react-virtualized实现虚拟加载
 
 ```
+  static propTypes = {
+    bordered: PropTypes.bool, //table风格
+    columns: PropTypes.array, // 列配置 
+    sortBy: PropTypes.string, // 列配置 
+    sortOrder: PropTypes.oneOf(['ascend', 'descend', '']), // 列配置 
+    dataSource: PropTypes.array,  // 数据源
+    rowKey: PropTypes.func, //设置rowkey
+    loading: PropTypes.bool, // 加载装 'pending', 'done', 'error'
+    height: PropTypes.number, // 设置控件高度
+    rowSelection:PropTypes.object, // 是否支持选中
+    pagination:PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.object,
+    ]),  //分页参数
+    emptyInfo:PropTypes.string, //空白占位控件参数
+    hasButton:PropTypes.bool,  //空白占位控件参数
+    buttonInfo:PropTypes.object, //空白占位控件参数
+
+    fixedRowCount: PropTypes.number, // 固定行数
+    headerHoverEnable: PropTypes.bool, // header是否支持hover选中列
+
+    onHeaderCellClick: PropTypes.func, // 头部点击事件
+    onBodyCellClick: PropTypes.func, // cell点击事件
+    onBodyCellDoubleClick: PropTypes.func, // cell双击事件
+    onRowClick: PropTypes.func, // 行点击事件
+    onRowDoubleClick: PropTypes.func, // 行双击事件
+    onCell: PropTypes.func, // 给body cell添加props
+    onHeaderCell: PropTypes.func, // 给Header cell添加props
+  }
+```
+
+```
 import React, {
   Component
 } from 'react';
@@ -33,9 +65,9 @@ class DemoPage extends Component {
       { key: 'id', title: '编号', width: 100, fixed: 'left'}, 
       { key: 'name', title: '名称',width: 150,  sorter: true}, 
       { key: 'de', title: '描述', width: 150, sorter: true}, 
-      { key: 'at', title: '', }, 
-      { key: 'bt', title: '',  }, 
-      { key: 'ct', title: '',  }, 
+      { key: 'at', title: 'at', renderHeader: (title, col, columnIndex) => `${title}-${columnIndex}` }, 
+      { key: 'bt', title: 'bt', renderHeaderTitle: (col) => col.title + '___x'  }, 
+      { key: 'ct', title: '', render: (text, row, columnIndex) => `${text}-${columnIndex}`  }, 
       { key: 'dt', title: '',  }, 
       { key: 'et', title: '',  }, 
       { key: 'ft', title: '',  }, 
